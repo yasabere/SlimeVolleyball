@@ -1,4 +1,5 @@
 import io from "socket.io-client";
+import * as actions from "../components/game/actions";
 
 export default () => {
   console.log("setting sockets up ");
@@ -6,6 +7,7 @@ export default () => {
 
   const onConnect = () => {
     console.log("connected");
+    socket.emit("join", {});
   };
 
   const onDisconnect = () => {
@@ -21,10 +23,21 @@ export default () => {
   socket.on("connect_error", onError);
   socket.on("reconnect_error", onError);
 
+  const actionsList = [...actions];
+
+  console.log(actionsList);
+
+  actionsList.map(element => {
+    console.log(element);
+  });
+  console.log({ ...actions });
+
   return store => next => action => {
-    console.log("dispatching", action);
+    if (action.socket) {
+      console.log("dispatching", action);
+      socket.emit(action.type);
+    }
     let result = next(action);
-    console.log("next state", store.getState());
     return result;
   };
 };

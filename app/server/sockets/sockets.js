@@ -21,7 +21,7 @@ export const sockets = server => {
       client.join(sessionId, () => {
         console.log("io.gameRooms", client.rooms);
         gameRooms[sessionId] = {
-          game: new GameEngine({ id: sessionId })
+          game: {} //new GameEngine({ id: sessionId })
         };
       });
       console.log(sessionId);

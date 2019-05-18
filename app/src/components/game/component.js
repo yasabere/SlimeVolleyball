@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import GameEngine from "./game";
 
+const ARROW_LEFT = "ArrowLeft";
+const ARROW_RIGHT = "ArrowRight";
+const ARROW_UP = "ArrowUp";
+const ARROW_DOWN = "ArrowDown";
+
 export class component extends Component {
   socket;
   game;
@@ -10,7 +15,7 @@ export class component extends Component {
   constructor(props) {
     console.log("trying to connect");
     super(props);
-    //this.game = new GameEngine({});
+
     this.img = new Image();
 
     props.playerOneEnter();
@@ -19,11 +24,11 @@ export class component extends Component {
   }
 
   componentDidMount() {
-    this.updateCanvas();
+    //this.updateCanvas();
   }
 
   componentDidUpdate() {
-    this.updateCanvas();
+    //this.updateCanvas();
   }
 
   render() {
@@ -56,8 +61,35 @@ export class component extends Component {
     //this.socket.disconnect();
   }
 
-  onKeyPressed() {
-    console.log("Key Pressed");
-    this.props.playerOneMoveLeft();
+  onKeyPressed(event) {
+    console.log(`${event.key} Key Pressed: `, event.key);
+
+    switch (event.key) {
+      case ARROW_LEFT:
+        this.props.playerOneMoveLeft();
+        break;
+
+      case ARROW_RIGHT:
+        this.props.playerOneMoveRight();
+        break;
+
+      case ARROW_UP:
+        this.props.playerOneJump();
+        this.props;
+        break;
+
+      case ARROW_DOWN:
+        break;
+
+      case "Enter":
+        this.game = new GameEngine({
+          runner: requestAnimationFrame,
+          canvas: this.refs.canvas
+        });
+        break;
+
+      default:
+        break;
+    }
   }
 }

@@ -6,9 +6,11 @@ import {
   playerOneEnter,
   playerOneMoveLeft,
   playerOneMoveRight,
+  playerOneJump,
   playerTwoEnter,
   playerTwoMoveLeft,
   playerTwoMoveRight,
+  playerTwoJump,
   gameOver,
   gameStart,
   score
@@ -26,9 +28,11 @@ const mapDispatchToProps = {
   playerOneEnter,
   playerOneMoveLeft,
   playerOneMoveRight,
+  playerOneJump,
   playerTwoEnter,
   playerTwoMoveLeft,
   playerTwoMoveRight,
+  playerTwoJump,
   gameOver,
   gameStart,
   score

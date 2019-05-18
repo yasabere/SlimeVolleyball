@@ -11,7 +11,7 @@
     "ignore-styles": "^5.0.1",
     "matter-js": "^0.14.2",
     "md5": "^2.2.1",
-    "morgan": "^1.9.0",
+    "morgan": "^1.9.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-redux": "^6.0.1",
@@ -27,9 +27,14 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "server": "NODE_ENV=development nodemon server/bootstrap.js",
-    "prod": "yarn run build && yarn run server"
+    "prod": "yarn run build && yarn run server",
+    "watch": "npm-watch"
   },
   "devDependencies": {
-    "nodemon": "^1.17.5"
+    "nodemon": "^1.17.5",
+    "npm-watch": "^0.6.0"
+  },
+  "watch": {
+    "build": "src/"
   }
 }

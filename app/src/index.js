@@ -13,7 +13,7 @@ const initialState = {};
 
 const store = createStore(
   (state = initialState, action) => state,
-  //applyMiddleware(logger())
+  applyMiddleware(logger())
 );
 
 ReactDOM.render(
